@@ -1,26 +1,69 @@
 {
   "cursos": [
     {
-      "id": 2,
-      "titulo": "Curso de JS",
-      "descricao": "Aprenda JS na Prática",
-      "valor": 33.9,
-      "valor_txt": "33,90",
-      "imagem": "https://digitalscientists.com/assets/case-blocks/logo-ionic-framework-thick.svg",
-      "aulas": []
+      "id": 3,
+      "titulo": "Curso de Android",
+      "descricao": "Aprenda Android na Prática",
+      "valor": 23.9,
+      "valor_txt": "23,90",
+      "imagem": "https://img.portalgsti.com.br/q1aWUEsYpmBW7kxesiPJKiGYpoI=/670x440/https://www.portalgsti.com.br/media/uploads/course/13419/2017/06/20/curso-onine-android.png",
+      "aulas": [
+        {
+          "id": 1,
+          "ordem": 1,
+          "titulo": "[Novo Curso - Android Studio] Aula 01 – Introdução Parte 1",
+          "tempo": "11:40",
+          "video": "https://www.youtube.com/embed/MnJEbS5p3kQ"
+        },
+        {
+          "id": 2,
+          "ordem": 2,
+          "titulo": "[Novo Curso - Android Studio] Aula 02 – Introdução Parte 2",
+          "tempo": "13:02",
+          "video": "https://www.youtube.com/embed/g1Zq_nyc8DM"
+        },
+        {
+          "id": 3,
+          "ordem": 3,
+          "titulo": "[Novo Curso - Android Studio] Aula 03 – Adicionando um Basic Activity",
+          "tempo": "13:48",
+          "video": "https://www.youtube.com/embed/h9uPk-baha4"
+        },
+        {
+          "id": 4,
+          "ordem": 4,
+          "titulo": "[Novo Curso - Android Studio] Aula 04 – ConstraintLayout e Exibindo um Activity",
+          "tempo": "22:07",
+          "video": "https://www.youtube.com/embed/0QCO6pZ9vxY"
+        },
+        {
+          "id": 5,
+          "ordem": 5,
+          "titulo": "[Novo Curso - Android Studio] Aula 05 – Construindo o Layout de Cadastro de Clientes - Parte 1",
+          "tempo": "21:57",
+          "video": "https://www.youtube.com/embed/kV0fMwUjQoA"
+        },
+        {
+          "id": 6,
+          "ordem": 6,
+          "titulo": "[Novo Curso - Android Studio] - Todos os cursos -",
+          "tempo": "21:57",
+          "video": "https://www.youtube.com/embed/MnJEbS5p3kQ&list=PLVawTLaO8Js9vhVjFj4Q18ncLHBdchenb"
+        }
+      ]
     }
   ],
   "usuarios": [
     {
-      "name": "Maria",
-      "email": "maria@mail.com",
-      "password": "123456",
+      "name": "Marcelo Teste Json",
+      "email": "marcelo.stadim@gmail.com",
+      "password": "12340980",
       "id": 1
     },
     {
-      "name": "Marcelo de Souza",
-      "email": "marcelo.stadim@gmail.com",
-      "password": "12340980",
+      "name": "Mirian dos Santos ",
+      "email": "mirian.itapaje@gmail.com",
+      "password": "sindy26",
       "id": 2
     }
   ]

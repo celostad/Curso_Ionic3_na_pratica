@@ -14,13 +14,19 @@ Json-Server:
 https://github.com/typicode/json-server
 
 Instalação:  npm install -g json-server
+Start: json-server --watch db.json
 
 Api com Laravel:
 
 instalar o Laravel
 composer create-project --prefer-dist laravel/laravel webservice "5.5.*"
 
-composer require laravel/passport
+Servidor Laravel: php artisan serve
+
+composer require laravel/passport=~4.0
+ref: https://laravel.com/docs/5.5/passport
+
+php artisan package:discover
 
 configurar o banco de dados ...
 
@@ -42,3 +48,5 @@ e o config/auth
 pronto...
 
 criar rotas de cadastro e de login e depois testar o acesso com token
+
+Start Laravel: php artisan serve
