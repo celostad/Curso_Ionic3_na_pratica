@@ -1,0 +1,44 @@
+
+Erro:
+
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
+Error: spawn EACCES
+
+[ERROR] An error occurred while running cordova emulate android (exit code 1).
+
+rodar (mac):
+sudo chmod 755 "/Applications/Android Studio.app/Contents/gradle/gradle-4.1/bin/gradle"
+
+Json-Server:
+
+https://github.com/typicode/json-server
+
+Instalação:  npm install -g json-server
+
+Api com Laravel:
+
+instalar o Laravel
+composer create-project --prefer-dist laravel/laravel webservice "5.5.*"
+
+composer require laravel/passport
+
+configurar o banco de dados ...
+
+php artisan migrate
+
+php artisan passport:install
+
+colocar no User:
+use Laravel\Passport\HasApiTokens;
+use HasApiTokens, Notifiable;
+
+e o config/auth
+
+'api' => [
+    'driver' => 'passport',
+    'provider' => 'users',
+],
+
+pronto...
+
+criar rotas de cadastro e de login e depois testar o acesso com token

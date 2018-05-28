@@ -1,0 +1,8 @@
+{
+  "name": "appCompra",
+  "app_id": "appCompra.marcelodesouza.net",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

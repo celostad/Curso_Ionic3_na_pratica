@@ -1,0 +1,27 @@
+{
+  "cursos": [
+    {
+      "id": 2,
+      "titulo": "Curso de JS",
+      "descricao": "Aprenda JS na Prática",
+      "valor": 33.9,
+      "valor_txt": "33,90",
+      "imagem": "https://digitalscientists.com/assets/case-blocks/logo-ionic-framework-thick.svg",
+      "aulas": []
+    }
+  ],
+  "usuarios": [
+    {
+      "name": "Maria",
+      "email": "maria@mail.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "name": "Marcelo de Souza",
+      "email": "marcelo.stadim@gmail.com",
+      "password": "12340980",
+      "id": 2
+    }
+  ]
+}
