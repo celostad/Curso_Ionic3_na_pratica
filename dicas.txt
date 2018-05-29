@@ -55,5 +55,6 @@ Baixar o Postman:
 
 https://www.getpostman.com/
 
-Extensão Chrome:
+# Extensão Chrome:
+//Liberar requisição de forma local
 https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi

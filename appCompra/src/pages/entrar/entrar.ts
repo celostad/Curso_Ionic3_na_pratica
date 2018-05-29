@@ -41,6 +41,7 @@ export class EntrarPage {
         if(res.token){
           console.log(res);
           this.usuariosProvider.setStorage("usuario",res);
+          localStorage.setItem('token', res.token);
           this.ativaMenuLogin();
           this.cancelar();
         }else{

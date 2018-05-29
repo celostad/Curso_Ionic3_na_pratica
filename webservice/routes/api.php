@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::post('/cadastro', function (Request $request) {
     $data = $request->all();
@@ -66,6 +66,11 @@ Route::post('/login', function (Request $request) {
     }
 });
 
-Route::middleware('auth:api')->get('/usuarios', function (Request $request) {
-    return User::all();
+//# Lista todos os usuários da tabela
+// Route::middleware('auth:api')->get('/usuarios', function (Request $request) {
+//     return User::all();
+// });
+
+Route::middleware('auth:api')->get('/usuario', function (Request $request) {
+    return $request->user();
 });

@@ -34,7 +34,7 @@ export class UsuariosProvider {
   }
 
   showUsuario(data: IUsuario) {
-    return this.http.get<IUsuario>(this.url + 'usuarios/' + data.id);
+    return this.http.get<IUsuario>(this.url + 'usuario',{"headers": {"authorization": "Bearer "+localStorage.getItem('token')}});
   }
 
   loginUsuario(data: IUsuario) {
