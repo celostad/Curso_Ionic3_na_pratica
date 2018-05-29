@@ -13,7 +13,9 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class UsuariosProvider {
 
-  url: string = 'http://localhost:3000/';
+  // url: string = 'http://localhost:3000/';
+  url: string = 'http://localhost:8000/api/';
+
   headers: any;
 
   constructor(
@@ -36,7 +38,7 @@ export class UsuariosProvider {
   }
 
   loginUsuario(data: IUsuario) {
-    return this.http.get<IUsuario>(this.url + 'usuarios/2');
+    return this.http.post<IUsuario>(this.url + 'login', data);
   }
 
   addUsuario(data: IUsuario) {

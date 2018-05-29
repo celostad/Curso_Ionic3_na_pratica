@@ -50,3 +50,10 @@ pronto...
 criar rotas de cadastro e de login e depois testar o acesso com token
 
 Start Laravel: php artisan serve
+
+Baixar o Postman:
+
+https://www.getpostman.com/
+
+Extensão Chrome:
+https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi

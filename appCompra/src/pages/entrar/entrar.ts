@@ -37,9 +37,21 @@ export class EntrarPage {
 
   loginUsuario(){
     this.usuariosProvider.loginUsuario(this.usuario).subscribe(res => {
-      this.usuariosProvider.setStorage("usuario",res);
-      this.ativaMenuLogin();
-      this.cancelar();
+      if(res){
+        if(res.token){
+          console.log(res);
+          this.usuariosProvider.setStorage("usuario",res);
+          this.ativaMenuLogin();
+          this.cancelar();
+        }else{
+          console.log(res); //erro validação
+        }
+      }else{
+        // login com erro!
+      }
+
+
+      
 
     }, erro => {
       console.log("Erro: " + erro.message);
