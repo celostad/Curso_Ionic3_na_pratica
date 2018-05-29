@@ -33,8 +33,10 @@ export class UsuariosProvider {
     return this.storage.get(chave);
   }
 
-  showUsuario(data: IUsuario) {
-    return this.http.get<IUsuario>(this.url + 'usuario',{"headers": {"authorization": "Bearer "+localStorage.getItem('token')}});
+  showUsuario(usuario:IUsuario) {
+    // Com essa instrução " localStorage.getItem('token')} ", pode ser que dê problemas.
+    // Pois estará gravando no dispositivo (armazenamento) local e se não tiver habilitado dará erros.
+    return this.http.get<IUsuario>(this.url + 'usuario',{"headers": {"authorization": "Bearer " + usuario.token}});
   }
 
   loginUsuario(data: IUsuario) {

@@ -32,8 +32,6 @@ export class CadastroPage {
     this.usuariosProvider.addUsuario(this.usuario).subscribe(res => {
       console.log(res);
       this.usuariosProvider.setStorage("usuario",res);
-      localStorage.setItem('token', res.token);
-      //this.usuario = res;
     }, erro => {
       console.log("Erro: " + erro.message);
     });
