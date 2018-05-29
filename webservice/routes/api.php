@@ -65,3 +65,7 @@ Route::post('/login', function (Request $request) {
       return false;
     }
 });
+
+Route::middleware('auth:api')->get('/usuarios', function (Request $request) {
+    return User::all();
+});
