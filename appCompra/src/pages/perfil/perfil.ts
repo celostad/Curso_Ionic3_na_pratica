@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+
 import { IUsuario } from '../../interfaces/IUsuario';
+
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
+
 /**
  * Generated class for the PerfilPage page.
  *
@@ -16,28 +19,23 @@ import { UsuariosProvider } from '../../providers/usuarios/usuarios';
   templateUrl: 'perfil.html',
 })
 export class PerfilPage {
+  usuario:IUsuario = {name:'',email:'',password:''};
 
-  usuario: IUsuario = { name: '', email: '', password: '' };
-
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public usuariosProvider: UsuariosProvider) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public usuariosProvider:UsuariosProvider) {
   }
 
   ionViewDidLoad() {
 
     this.usuariosProvider.getStorage("usuario").then(usuario => {
-      if (usuario) {
+      if(usuario){
         this.usuario = usuario;
         this.usuariosProvider.showUsuario(usuario).subscribe(res => {
-        console.log(res);
+          console.log(res);
           this.usuario = res;
         }, erro => {
           console.log("Erro: " + erro.message);
         });
-      } else {
+      }else{
         this.cancelar();
       }
     });
@@ -47,14 +45,14 @@ export class PerfilPage {
 
   }
 
-  cancelar() {
+  cancelar(){
     this.navCtrl.setRoot(HomePage);
   }
 
-  editarUsuario() {
+  editarUsuario(){
     this.usuariosProvider.editUsuario(this.usuario).subscribe(res => {
       this.usuario = res;
-      this.usuariosProvider.setStorage("usuario", res);
+      this.usuariosProvider.setStorage("usuario",res);
     }, erro => {
       console.log("Erro: " + erro.message);
     });

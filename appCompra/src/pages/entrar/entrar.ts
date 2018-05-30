@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 import { HomePage } from '../home/home';
+
 import { IUsuario } from '../../interfaces/IUsuario';
+
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
+
 import { MenuController } from 'ionic-angular';
 
+/**
+ * Generated class for the EntrarPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -12,21 +22,16 @@ import { MenuController } from 'ionic-angular';
   templateUrl: 'entrar.html',
 })
 export class EntrarPage {
+  usuario:IUsuario = {email:'',password:''};
 
-  usuario: IUsuario = { email: '', password: '' };
-
-  constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    public usuariosProvider: UsuariosProvider,
-    public menuCtrl: MenuController) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public usuariosProvider:UsuariosProvider,public menuCtrl: MenuController) {
   }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad CadastroPage');
+
   }
 
-  cancelar() {
+  cancelar(){
     this.navCtrl.setRoot(HomePage);
   }
 
@@ -40,23 +45,20 @@ export class EntrarPage {
       if(res){
         if(res.token){
           console.log(res);
-          this.usuariosProvider.setStorage("usuario",res);
+          this.usuariosProvider.setStorage("usuario",res);          
           this.ativaMenuLogin();
           this.cancelar();
         }else{
-          console.log(res); //erro validação
+          console.log(res); // validação
         }
       }else{
-        // login com erro!
+        // Login com erro!
       }
 
-
-      
 
     }, erro => {
       console.log("Erro: " + erro.message);
     });
   }
-
 
 }
