@@ -27,20 +27,21 @@ export class PerfilPage {
   }
 
   ionViewDidLoad() {
+
     this.usuariosProvider.getStorage("usuario").then(usuario => {
       if (usuario) {
         this.usuario = usuario;
         this.usuariosProvider.showUsuario(usuario).subscribe(res => {
-        this.usuario = res;
         console.log(res);
+          this.usuario = res;
         }, erro => {
           console.log("Erro: " + erro.message);
         });
-
       } else {
         this.cancelar();
       }
     });
+
 
 
 
@@ -51,9 +52,9 @@ export class PerfilPage {
   }
 
   editarUsuario() {
-
     this.usuariosProvider.editUsuario(this.usuario).subscribe(res => {
       this.usuario = res;
+      this.usuariosProvider.setStorage("usuario", res);
     }, erro => {
       console.log("Erro: " + erro.message);
     });
