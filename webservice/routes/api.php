@@ -67,13 +67,22 @@ Route::middleware('auth:api')->get('/usuarios', function (Request $request) {
     return User::all();
 });
 
+Route::middleware('auth:api')->get('/usuario', function (Request $request) {
+    $user = $request->user();
+    $user->token = $user->createToken($user->email)->accessToken;
+    return $user;
+});
+
 Route::middleware('auth:api')->put('/usuario', function (Request $request) {
     $user = $request->user();
     $data = $request->all();
-    if($data['password']){
-      $data['password'] = bcrypt($data['password']);
+    if(isset($data['password']) && $data['password'] != ""){
+        $data['password'] = bcrypt($data['password']);
+    }elseif(isset($data['password']) && $data['password'] == ""){
+        unset($data['password']);
+
     }
     $user->update($data);
-
+    $user->token = $user->createToken($user->email)->accessToken;
     return $user;
 });

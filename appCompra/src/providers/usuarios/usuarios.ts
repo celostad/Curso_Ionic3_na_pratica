@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 export class UsuariosProvider {
 
   //url:string = 'http://localhost:3000/';
-  url:string = 'http://localhost:8000/api/';
+  url:string = 'http://127.0.0.1:8000/api/';
   headers:any;
 
   constructor(public http: HttpClient, private storage: Storage) {
@@ -38,7 +38,8 @@ export class UsuariosProvider {
   }
 
   addUsuario(data:IUsuario){
-    return this.http.post<IUsuario>(this.url +'usuarios',data);
+    //return this.http.post<IUsuario>(this.url +'usuarios',data);
+    return this.http.post<IUsuario>(this.url +'cadastro',data);
   }
 
   editUsuario(usuario:IUsuario){
