@@ -6,7 +6,7 @@ export interface ICurso{
   descricao: string;
   autor: string;
   valor: number;
-  valor_txt: string;
+  valor_texto: string;
   imagem: string;
   aulas: IAula[];
 }

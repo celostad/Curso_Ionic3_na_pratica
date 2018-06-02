@@ -16,8 +16,8 @@ export class CursosProvider {
   }
 
   
-  allTeste(){
-    return this.http.get<ICurso[]>('http://localhost:3000/cursos');
+  listaCurso(){
+    return this.http.get<ICurso[]>('http://localhost:8000/api/cursos');
   }
   
   showTeste(data:ICurso){
@@ -42,8 +42,9 @@ export class CursosProvider {
         id:1,
         titulo:"Curso de Ionic",
         descricao:"Aprenda Ionic na Prática",
+        autor:"Marcelo",
         valor:23.90,
-        valor_txt:"23,90",
+        valor_texto:"23,90",
         imagem:"https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png",
         aulas:[
           {
@@ -66,8 +67,9 @@ export class CursosProvider {
         id:2,
         titulo:"Curso de JS",
         descricao:"Aprenda JS na Prática",
+        autor:"Marcelo Souza",
         valor:33.90,
-        valor_txt:"33,90",
+        valor_texto:"33,90",
         imagem:"https://ionicframework.com/dist/preview-app/www/assets/img/rundmc-live.png",
         aulas:[]
       }

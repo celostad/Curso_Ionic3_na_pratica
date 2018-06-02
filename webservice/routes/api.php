@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\Curso;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,3 +88,25 @@ Route::middleware('auth:api')->put('/usuario', function (Request $request) {
     $user->token = $user->createToken($user->email)->accessToken;
     return $user;
 });
+
+Route::get('/admin/criar/cursos', function (Request $request) {
+    
+    /*$curso = Curso::create(
+      [
+        "titulo"=> "Curso de Laravel",
+        "descricao"=> "Aprenda Laravel na Prática",
+        "autor"=>"Murilo",
+        "valor"=> 35.9,
+        "valor_texto"=> "35,90",
+        "imagem"=> "http://www.keylogger.co.in/images/services/logo_laravel.png"
+      ]
+    );
+    return $curso;
+    */
+  
+  });
+  
+  Route::get('/cursos', function (Request $request) {
+    $cursos = Curso::all();
+    return $cursos;
+  });
