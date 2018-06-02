@@ -40,9 +40,6 @@ export class PerfilPage {
       }
     });
 
-
-
-
   }
 
   cancelar(){
@@ -51,8 +48,18 @@ export class PerfilPage {
 
   editarUsuario(){
     this.usuariosProvider.editUsuario(this.usuario).subscribe(res => {
-      this.usuario = res;
-      this.usuariosProvider.setStorage("usuario",res);
+      if(res){
+        if(res.token){
+          console.log(res);
+          this.usuariosProvider.setStorage("usuario",res);
+          
+        }else{
+          console.log(res); // validação
+        }
+      }else{
+        // Login com erro!
+      }
+
     }, erro => {
       console.log("Erro: " + erro.message);
     });
