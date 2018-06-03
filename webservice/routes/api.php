@@ -125,23 +125,42 @@ Route::middleware('auth:api')->put('/usuario', function (Request $request) {
 });
 
 Route::get('/admin/criar/cursos', function (Request $request) {
-  /*
-  $curso = Curso::create(
+  
+  /* $curso = Curso::create(
     [
-      "titulo"=> "Curso de Laravel",
-      "descricao"=> "Aprenda Laravel na Prática",
-      "autor"=>"Murilo",
-      "valor"=> 35.9,
-      "valor_texto"=> "35,90",
-      "imagem"=> "https://digitalscientists.com/assets/case-blocks/logo-ionic-framework-thick.svg",
+      "titulo"=> "Curso de Android",
+      "descricao"=> "Aprenda Android na Prática",
+      "autor"=>"Marcelo Souza",
+      "valor"=> 55.90,
+      "valor_texto"=> "55,90",
+      "imagem"=> "https://www.portalgsti.com.br/media/uploads/course/13419/2017/06/20/curso-onine-android.png",
     ]
   );
   return $curso;
   */
-
 });
 
 Route::get('/cursos', function (Request $request) {
-  $cursos = Curso::all();
+  $cursos = Curso::with('aulas')->get();
   return $cursos;
+});
+
+
+Route::get('/admin/criar/aulas', function (Request $request) {
+
+
+  /*$aula = Curso::find(3)->aulas()->create(
+    [
+      "titulo" => "[Novo Curso - Android Studio] - Playlist - Todos os cursos",
+      "ordem" => 6,
+      "tempo" => "00:00",
+      "video" => "https://www.youtube.com/embed/MnJEbS5p3kQ&list=PLVawTLaO8Js9vhVjFj4Q18ncLHBdchenb"
+    ]
+
+);
+  return $aula;
+  
+*/
+
+
 });

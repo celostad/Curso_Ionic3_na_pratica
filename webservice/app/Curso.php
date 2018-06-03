@@ -16,5 +16,9 @@ class Curso extends Model
       'imagem'
     ];
 
-
+    public function aulas()
+    {
+      return $this->hasMany('App\Aula')->orderBy('ordem','ASC');
+    }
+    
 }
