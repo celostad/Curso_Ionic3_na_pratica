@@ -58,3 +58,29 @@ https://www.getpostman.com/
 # Extensão Chrome:
 //Liberar requisição de forma local
 https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
+
+
+Teste com Emulador:
+
+https://blog.ionicframework.com/handling-cors-issues-in-ionic/
+php artisan serve --host=colocar aqui o Ipv4 --port=8000
+php artisan serve --host=192.168.0.5 --port=8000
+
+Lógica de compra de cursos:
+
+users
+
+cursos
+
+compras
+  user_id
+  data
+  total
+  status = pago
+
+produtos
+compra_id
+user_id
+cursos_id
+titulo
+valor
