@@ -140,14 +140,7 @@ Route::get('/admin/criar/cursos', function (Request $request) {
   */
 });
 
-Route::get('/cursos', function (Request $request) {
-  $cursos = Curso::with('aulas')->get();
-  return $cursos;
-});
-
-
 Route::get('/admin/criar/aulas', function (Request $request) {
-
 
   /*$aula = Curso::find(3)->aulas()->create(
     [
@@ -161,6 +154,54 @@ Route::get('/admin/criar/aulas', function (Request $request) {
   return $aula;
   
 */
+});
 
+Route::get('/cursos', function (Request $request) {
+  $cursos = Curso::with('aulas')->get();
+  return $cursos;
+});
+
+
+
+Route::middleware('auth:api')->post('/compra', function (Request $request) {
+  $user = $request->user();
+  $data = $request->all();
+  $lista_cursos_id = explode(",",$data['cursos']);
+
+  $cursos = [];
+  $total = 0;
+
+  foreach ($lista_cursos_id as $key => $value) {
+    $curso = Curso::find($value);
+    if($curso){
+      $cursos[$key] = $curso;
+      $total += $curso->valor;
+    }
+  }
+
+  if($total){
+    $compra = $user->compras()->create(
+      [
+        'data'=>date('Y-m-d'),
+        'total'=>$total,
+        'status'=>'aguardando'
+      ]
+    );
+    foreach ($cursos as $key => $value) {
+      $compra->produtos()->create(
+        [
+          'user_id'=>$user->id,
+          'curso_id'=>$value->id,
+          'titulo'=>$value->titulo,
+          'valor'=>$value->valor
+        ]
+      );
+    }
+
+    return $compra;
+
+  }
+
+  return ['status'=>'erro na comrpa!'];
 
 });
