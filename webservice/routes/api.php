@@ -205,3 +205,8 @@ Route::middleware('auth:api')->post('/compra', function (Request $request) {
   return ['status'=>'erro na comrpa!'];
 
 });
+
+Route::middleware('auth:api')->get('/compras', function (Request $request) {
+  $user = $request->user();
+  return $user->compras()->with('produtos')->get();
+});
