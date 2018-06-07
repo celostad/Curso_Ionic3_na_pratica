@@ -5,6 +5,7 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Curso;
+use App\Compra;
 use Illuminate\Validation\Rule;
 
 /*
@@ -202,11 +203,31 @@ Route::middleware('auth:api')->post('/compra', function (Request $request) {
 
   }
 
-  return ['status'=>'erro na comrpa!'];
+  return ['status'=>'erro na compra!'];
 
 });
 
 Route::middleware('auth:api')->get('/compras', function (Request $request) {
   $user = $request->user();
   return $user->compras()->with('produtos')->get();
+});
+
+Route::post('/notificacao', function (Request $request) {
+  $data = $request->all();
+  $compra = Compra::find($data['id_compra']);
+  if($compra){
+    $status = "aguardando";
+    if($data['status'] == "pago"){
+      $status = "pago";
+    }
+
+    if($data['status'] == "cancelado"){
+      $status = "cancelado";
+    }
+    $compra->status = $status;
+    $compra->save();
+    return response('OK!',200);
+
+  }
+  return response('Compra não existe!',404);
 });
