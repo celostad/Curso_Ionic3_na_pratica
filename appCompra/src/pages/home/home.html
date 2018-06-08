@@ -9,7 +9,11 @@
 
 <ion-content padding>
 
+  <ion-fab top right edge>
+    <button (click)="abreCarrinho()" ion-fab mini icon-left><ion-badge item-end>0</ion-badge><ion-icon name="cart"></ion-icon></button>
 
+  </ion-fab>
+  
   <ion-card *ngFor="let item of lista">
     <img [src]="item.imagem"/>
     <ion-card-content>
