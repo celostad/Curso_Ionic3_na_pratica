@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CursosProvider } from '../providers/cursos/cursos';
 import { UsuariosProvider } from '../providers/usuarios/usuarios';
 import { IonicStorageModule } from '@ionic/storage';
+import { CarrinhoProvider } from '../providers/carrinho/carrinho';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CursosProvider,
-    UsuariosProvider
+    UsuariosProvider,
+    CarrinhoProvider
   ]
 })
 export class AppModule {}

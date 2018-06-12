@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+
 import { DetalhePage } from '../detalhe/detalhe';
 import { CarrinhoPage } from '../carrinho/carrinho';
-import { ICurso } from '../../interfaces/ICurso';
-import { CursosProvider } from '../../providers/cursos/cursos';
 
+import { ICurso } from '../../interfaces/ICurso';
+
+import { CursosProvider } from '../../providers/cursos/cursos';
+import { CarrinhoProvider } from '../../providers/carrinho/carrinho';
 
 @Component({
   selector: 'page-home',
@@ -13,10 +16,12 @@ import { CursosProvider } from '../../providers/cursos/cursos';
 export class HomePage {
 
   lista: ICurso[];
+  carrinho = [];
 
   constructor(
     public navCtrl: NavController,
-    public cursoProvider: CursosProvider) {
+    public cursoProvider: CursosProvider,
+    public carrinhoProvider: CarrinhoProvider) {
       //this.lista = this.cursoProvider.all();
   }
 
@@ -35,6 +40,11 @@ export class HomePage {
 
   abreCarrinho(){
     this.navCtrl.push(CarrinhoPage);
+  }
+
+  addCarrinho(item){
+    this.carrinho.push(item);
+    this.carrinhoProvider.setStorage('carrinho',this.carrinho);
   }
 
 }
