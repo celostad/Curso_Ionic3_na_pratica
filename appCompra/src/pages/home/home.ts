@@ -43,6 +43,12 @@ export class HomePage {
   }
 
   addCarrinho(item){
+    for(let curso of this.carrinho){
+      if(curso.id == item.id){
+        return;
+      }
+    }
+
     this.carrinho.push(item);
     this.carrinhoProvider.setStorage('carrinho',this.carrinho);
   }
