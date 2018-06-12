@@ -9,6 +9,7 @@ import { AulaPage } from '../pages/aula/aula';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import {PerfilPage } from '../pages/perfil/perfil';
 import { EntrarPage } from '../pages/entrar/entrar';
+import { CarrinhoPage } from '../pages/carrinho/carrinho';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -27,7 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AulaPage,
     CadastroPage,
     PerfilPage,
-    EntrarPage
+    EntrarPage,
+    CarrinhoPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AulaPage,
     CadastroPage,
     PerfilPage,
-    EntrarPage
+    EntrarPage,
+    CarrinhoPage
   ],
   providers: [
     StatusBar,

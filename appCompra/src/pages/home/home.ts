@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DetalhePage } from '../detalhe/detalhe';
+import { CarrinhoPage } from '../carrinho/carrinho';
 import { ICurso } from '../../interfaces/ICurso';
 import { CursosProvider } from '../../providers/cursos/cursos';
 
@@ -30,6 +31,10 @@ export class HomePage {
 
   abreDetalhe(item){
     this.navCtrl.push(DetalhePage, {dados:item});
+  }
+
+  abreCarrinho(){
+    this.navCtrl.push(CarrinhoPage);
   }
 
 }
